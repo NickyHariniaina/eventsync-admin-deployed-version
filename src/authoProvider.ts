@@ -21,14 +21,18 @@ export const authProvider: AuthProvider = {
     return Promise.resolve()
   },
 
-  logout: async () => {
+    logout: async () => {
     await fetch("http://localhost:3000/api/auth/sign-out", {
-      method: "POST",
-      credentials: "include",
+        method: "POST",
+        credentials: "include",
+        headers: {
+        "Content-Type": "application/json"
+        },
+        body: JSON.stringify({})
     })
     localStorage.removeItem("user")
     return Promise.resolve()
-  },
+    },
 
   checkAuth: async () => {
     const response = await fetch("http://localhost:3000/api/auth/get-session", {
