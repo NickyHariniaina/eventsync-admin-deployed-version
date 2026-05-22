@@ -5,30 +5,18 @@ import {
   IconButton,
 } from "@mui/material"
 import { Layout, Menu, UserMenu, Logout, type LayoutProps } from "react-admin"
-import { useState, useEffect } from "react"
+import { useTheme } from "./ThemeContext"
 
 function ThemeToggle() {
-  const [dark, setDark] = useState(() => {
-    if (typeof document === "undefined") return false
-    return document.documentElement.classList.contains("dark")
-  })
-
-  useEffect(() => {
-    const html = document.documentElement
-    if (dark) {
-      html.classList.add("dark")
-    } else {
-      html.classList.remove("dark")
-    }
-  }, [dark])
+  const { isDark, toggle } = useTheme()
 
   return (
     <IconButton
-      onClick={() => setDark(!dark)}
+      onClick={toggle}
       sx={{ color: "inherit" }}
       aria-label="Basculer le mode sombre"
     >
-      {dark ? (
+      {isDark ? (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
         </svg>
