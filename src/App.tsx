@@ -1,4 +1,4 @@
-import { Admin, Resource } from "react-admin"
+import { Admin, Resource, fetchUtils } from "react-admin"
 import simpleRestProvider from "ra-data-simple-rest"
 import { authProvider } from "./authoProvider"
 import { EventList, EventEdit, EventCreate } from "./resources/events"
@@ -10,7 +10,11 @@ import { MyLayout } from "./Layout"
 import LoginPage from "./LoginPage"
 import "./App.css"
 
-const dataProvider = simpleRestProvider("http://localhost:3000/api")
+const httpClient = (url: string, options: fetchUtils.Options = {}) => {
+  return fetchUtils.fetchJson(url, { ...options, credentials: "include" })
+}
+
+const dataProvider = simpleRestProvider("http://localhost:3000/api", httpClient)
 
 export default function App() {
   return (
