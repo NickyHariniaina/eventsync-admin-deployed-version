@@ -4,7 +4,7 @@ import {
   Typography,
   IconButton,
 } from "@mui/material"
-import { Layout, Menu, type LayoutProps } from "react-admin"
+import { Layout, Menu, UserMenu, Logout, type LayoutProps } from "react-admin"
 import { useState, useEffect } from "react"
 
 function ThemeToggle() {
@@ -50,6 +50,9 @@ function MyAppBar() {
           EventSync Admin
         </Typography>
         <ThemeToggle />
+        <UserMenu>
+          <Logout />
+        </UserMenu>
       </Toolbar>
     </MuiAppBar>
   )
