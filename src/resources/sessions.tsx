@@ -10,6 +10,8 @@ import {
   NumberInput,
   ReferenceInput,
   SelectInput,
+  ReferenceArrayInput,
+  SelectArrayInput,
   Create,
 } from "react-admin"
 
@@ -25,8 +27,13 @@ export const SessionList = () => (
   </List>
 )
 
+const transformEdit = (data: Record<string, any>) => ({
+  ...data,
+  speakerIds: data.speakers?.map((s: any) => s.id) ?? [],
+})
+
 export const SessionEdit = () => (
-  <Edit>
+  <Edit transform={transformEdit}>
     <SimpleForm>
       <TextInput source="title" label="Titre" required />
       <TextInput source="description" label="Description" multiline />
@@ -39,6 +46,9 @@ export const SessionEdit = () => (
       <ReferenceInput source="roomId" reference="rooms" label="Salle">
         <SelectInput optionText="name" />
       </ReferenceInput>
+      <ReferenceArrayInput source="speakerIds" reference="speakers" label="Intervenants">
+        <SelectArrayInput optionText="name" />
+      </ReferenceArrayInput>
     </SimpleForm>
   </Edit>
 )
@@ -57,6 +67,9 @@ export const SessionCreate = () => (
       <ReferenceInput source="roomId" reference="rooms" label="Salle">
         <SelectInput optionText="name" />
       </ReferenceInput>
+      <ReferenceArrayInput source="speakerIds" reference="speakers" label="Intervenants">
+        <SelectArrayInput optionText="name" />
+      </ReferenceArrayInput>
     </SimpleForm>
   </Create>
 )
