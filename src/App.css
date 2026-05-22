@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+.RaLayout-appFrame {
+  margin-top: 0 !important;
+}
+
 :root {
   --home-bg: #ffffff;
   --color-rust: #a33b20;
