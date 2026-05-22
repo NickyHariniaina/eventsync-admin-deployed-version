@@ -8,6 +8,7 @@ import {
   TextInput,
   DateTimeInput,
   Create,
+  DeleteButton,
 } from "react-admin"
 
 export const EventList = () => (
@@ -17,6 +18,7 @@ export const EventList = () => (
       <TextField source="location" label="Lieu" />
       <DateField source="startDate" label="Début" showTime />
       <DateField source="endDate" label="Fin" showTime />
+      <DeleteButton label="Supprimer" />
     </Datagrid>
   </List>
 )
