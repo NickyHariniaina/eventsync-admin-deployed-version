@@ -5,7 +5,8 @@ import { EventList, EventEdit, EventCreate } from "./resources/events"
 import { RoomList, RoomEdit, RoomCreate } from "./resources/rooms"
 import { SessionList, SessionEdit, SessionCreate } from "./resources/sessions"
 import { SpeakerList, SpeakerEdit, SpeakerCreate } from "./resources/speakers"
-import { theme } from "./theme"
+import { lightTheme, darkTheme } from "./theme"
+import { ThemeProvider, useTheme } from "./ThemeContext"
 import { MyLayout } from "./Layout"
 import LoginPage from "./LoginPage"
 import "./App.css"
@@ -16,12 +17,14 @@ const httpClient = (url: string, options: fetchUtils.Options = {}) => {
 
 const dataProvider = simpleRestProvider("http://localhost:3000/api", httpClient)
 
-export default function App() {
+function AdminApp() {
+  const { isDark } = useTheme()
+
   return (
     <Admin
       dataProvider={dataProvider}
       authProvider={authProvider}
-      theme={theme}
+      theme={isDark ? darkTheme : lightTheme}
       layout={MyLayout}
       loginPage={LoginPage}
     >
@@ -54,5 +57,13 @@ export default function App() {
         options={{ label: "Intervenants" }}
       />
     </Admin>
+  )
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AdminApp />
+    </ThemeProvider>
   )
 }
