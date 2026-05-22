@@ -2,7 +2,7 @@ import { Admin, Resource, fetchUtils } from "react-admin"
 import simpleRestProvider from "ra-data-simple-rest"
 import { authProvider } from "./authoProvider"
 import { EventList, EventEdit, EventCreate } from "./resources/events"
-import { RoomList } from "./resources/rooms"
+import { RoomList, RoomEdit, RoomCreate } from "./resources/rooms"
 import { SessionList, SessionEdit, SessionCreate } from "./resources/sessions"
 import { SpeakerList, SpeakerEdit, SpeakerCreate } from "./resources/speakers"
 import { theme } from "./theme"
@@ -35,6 +35,8 @@ export default function App() {
       <Resource
         name="rooms"
         list={RoomList}
+        edit={RoomEdit}
+        create={RoomCreate}
         options={{ label: "Salles" }}
       />
       <Resource
