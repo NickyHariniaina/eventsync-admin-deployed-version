@@ -44,7 +44,7 @@ function ThemeToggle() {
 
 function MyAppBar() {
   return (
-    <MuiAppBar position="sticky">
+    <MuiAppBar position="fixed">
       <Toolbar>
         <Typography variant="h6" fontWeight={700} sx={{ flexGrow: 1 }}>
           EventSync Admin
