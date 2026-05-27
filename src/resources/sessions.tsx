@@ -134,19 +134,35 @@ export const SessionEdit = () => (
   <Edit transform={transformEdit}>
     <TabbedForm>
       <FormTab label="Informations">
-        <TextInput source="title" label="Titre" required />
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
+            gap: 1,
+          }}
+        >
+          <TextInput source="title" label="Titre" required fullWidth />
+          <NumberInput source="capacity" label="Capacite" fullWidth />
+        </Box>
         <TextInput source="description" label="Description" multiline fullWidth />
       </FormTab>
       <FormTab label="Planning">
-        <DateTimeInput source="startTime" label="Date de debut" required />
-        <DateTimeInput source="endTime" label="Date de fin" required />
-        <NumberInput source="capacity" label="Capacite" />
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
+            gap: 1,
+          }}
+        >
+          <DateTimeInput source="startTime" label="Date de debut" required />
+          <DateTimeInput source="endTime" label="Date de fin" required />
+        </Box>
       </FormTab>
       <FormTab label="Affectations">
-        <ReferenceInput source="eventId" reference="events" label="Evenement">
+        <ReferenceInput source="eventId" reference="events" label="Evenement" fullWidth>
           <SelectInput optionText="title" />
         </ReferenceInput>
-        <ReferenceInput source="roomId" reference="rooms" label="Salle">
+        <ReferenceInput source="roomId" reference="rooms" label="Salle" fullWidth>
           <SelectInput optionText="name" />
         </ReferenceInput>
         <ReferenceArrayInput
@@ -161,27 +177,49 @@ export const SessionEdit = () => (
   </Edit>
 )
 
+const SessionForm = () => (
+  <>
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
+        gap: 1,
+      }}
+    >
+      <TextInput source="title" label="Titre" required fullWidth />
+      <NumberInput source="capacity" label="Capacite" fullWidth />
+    </Box>
+    <TextInput source="description" label="Description" multiline fullWidth />
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
+        gap: 1,
+      }}
+    >
+      <DateTimeInput source="startTime" label="Date de debut" required />
+      <DateTimeInput source="endTime" label="Date de fin" required />
+    </Box>
+    <ReferenceInput source="eventId" reference="events" label="Evenement" fullWidth>
+      <SelectInput optionText="title" />
+    </ReferenceInput>
+    <ReferenceInput source="roomId" reference="rooms" label="Salle" fullWidth>
+      <SelectInput optionText="name" />
+    </ReferenceInput>
+    <ReferenceArrayInput
+      source="speakerIds"
+      reference="speakers"
+      label="Intervenants"
+    >
+      <SelectArrayInput optionText="name" />
+    </ReferenceArrayInput>
+  </>
+)
+
 export const SessionCreate = () => (
   <Create>
     <SimpleForm>
-      <TextInput source="title" label="Titre" required />
-      <TextInput source="description" label="Description" multiline />
-      <DateTimeInput source="startTime" label="Date de debut" required />
-      <DateTimeInput source="endTime" label="Date de fin" required />
-      <NumberInput source="capacity" label="Capacite" />
-      <ReferenceInput source="eventId" reference="events" label="Evenement">
-        <SelectInput optionText="title" />
-      </ReferenceInput>
-      <ReferenceInput source="roomId" reference="rooms" label="Salle">
-        <SelectInput optionText="name" />
-      </ReferenceInput>
-      <ReferenceArrayInput
-        source="speakerIds"
-        reference="speakers"
-        label="Intervenants"
-      >
-        <SelectArrayInput optionText="name" />
-      </ReferenceArrayInput>
+      <SessionForm />
     </SimpleForm>
   </Create>
 )
