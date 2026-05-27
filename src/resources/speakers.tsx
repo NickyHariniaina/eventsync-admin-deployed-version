@@ -4,6 +4,7 @@ import {
   Create,
   SimpleForm,
   TextInput,
+  FormDataConsumer,
   useListContext,
   useRedirect,
 } from "react-admin"
@@ -130,12 +131,61 @@ export const SpeakerList = () => (
   </List>
 )
 
+function PhotoPreview() {
+  return (
+    <FormDataConsumer>
+      {({ formData }) =>
+        formData?.photo ? (
+          <Box sx={{ display: "flex", justifyContent: "center", mb: 2 }}>
+            <Box
+              component="img"
+              src={formData.photo}
+              sx={{
+                width: 100,
+                height: 100,
+                borderRadius: "50%",
+                objectFit: "cover",
+                border: "3px solid",
+                borderColor: "primary.main",
+              }}
+              onError={(e) => {
+                ;(e.target as HTMLImageElement).style.display = "none"
+              }}
+            />
+          </Box>
+        ) : null
+      }
+    </FormDataConsumer>
+  )
+}
+
+const SpeakerForm = () => (
+  <>
+    <PhotoPreview />
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
+        gap: 1,
+      }}
+    >
+      <TextInput source="name" label="Nom" required fullWidth />
+      <TextInput source="photo" label="URL de la photo" fullWidth />
+    </Box>
+    <TextInput
+      source="bio"
+      label="Biographie"
+      multiline
+      fullWidth
+      helperText="Courte biographie publique"
+    />
+  </>
+)
+
 export const SpeakerEdit = () => (
   <Edit>
     <SimpleForm>
-      <TextInput source="name" label="Nom" required />
-      <TextInput source="photo" label="URL de la photo" />
-      <TextInput source="bio" label="Biographie" multiline />
+      <SpeakerForm />
     </SimpleForm>
   </Edit>
 )
@@ -143,9 +193,7 @@ export const SpeakerEdit = () => (
 export const SpeakerCreate = () => (
   <Create>
     <SimpleForm>
-      <TextInput source="name" label="Nom" required />
-      <TextInput source="photo" label="URL de la photo" />
-      <TextInput source="bio" label="Biographie" multiline />
+      <SpeakerForm />
     </SimpleForm>
   </Create>
 )
