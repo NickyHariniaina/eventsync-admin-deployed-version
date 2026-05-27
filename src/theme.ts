@@ -19,7 +19,6 @@ const shared = {
 const cardOverrides = {
   root: {
     borderRadius: 12,
-    border: "1px solid",
     boxShadow: "none",
     transition: "transform 0.2s ease, box-shadow 0.2s ease",
     "&:hover": {
@@ -105,10 +104,7 @@ export const lightTheme = createTheme({
     MuiCard: {
       styleOverrides: {
         ...cardOverrides,
-        root: {
-          ...cardOverrides.root,
-          borderColor: "#d9c9c2",
-        },
+        root: cardOverrides.root,
       },
     },
     MuiTableHead: {
@@ -184,10 +180,7 @@ export const darkTheme = createTheme({
     MuiCard: {
       styleOverrides: {
         ...cardOverrides,
-        root: {
-          ...cardOverrides.root,
-          borderColor: "#4a3f3a",
-        },
+        root: cardOverrides.root,
       },
     },
     MuiTableHead: {
