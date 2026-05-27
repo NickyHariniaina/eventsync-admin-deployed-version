@@ -9,6 +9,7 @@ import {
   useRedirect,
 } from "react-admin"
 import { Card, Typography, Box, Skeleton } from "@mui/material"
+import { FormToolbar } from "../FormToolbar"
 
 function SpeakerCards() {
   const { data, isLoading } = useListContext()
@@ -184,7 +185,7 @@ const SpeakerForm = () => (
 
 export const SpeakerEdit = () => (
   <Edit>
-    <SimpleForm>
+    <SimpleForm toolbar={<FormToolbar />}>
       <SpeakerForm />
     </SimpleForm>
   </Edit>
@@ -192,7 +193,7 @@ export const SpeakerEdit = () => (
 
 export const SpeakerCreate = () => (
   <Create>
-    <SimpleForm>
+    <SimpleForm toolbar={<FormToolbar />}>
       <SpeakerForm />
     </SimpleForm>
   </Create>

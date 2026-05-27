@@ -9,6 +9,7 @@ import {
   useRedirect,
 } from "react-admin"
 import { Card, Typography, Box, Divider, Skeleton } from "@mui/material"
+import { FormToolbar } from "../FormToolbar"
 
 function toFrDate(date: Date) {
   return date.toLocaleDateString("fr-FR", {
@@ -180,7 +181,7 @@ const EventForm = () => (
 
 export const EventEdit = () => (
   <Edit>
-    <SimpleForm>
+    <SimpleForm toolbar={<FormToolbar />}>
       <EventForm />
     </SimpleForm>
   </Edit>
@@ -188,7 +189,7 @@ export const EventEdit = () => (
 
 export const EventCreate = () => (
   <Create>
-    <SimpleForm>
+    <SimpleForm toolbar={<FormToolbar />}>
       <EventForm />
     </SimpleForm>
   </Create>

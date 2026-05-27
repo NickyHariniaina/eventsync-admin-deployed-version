@@ -16,6 +16,7 @@ import {
   useRedirect,
 } from "react-admin"
 import { Card, Typography, Box, Skeleton } from "@mui/material"
+import { FormToolbar } from "../FormToolbar"
 
 function formatTime(iso: string) {
   return new Date(iso).toLocaleTimeString("fr-FR", {
@@ -132,7 +133,7 @@ const transformEdit = (data: Record<string, any>) => ({
 
 export const SessionEdit = () => (
   <Edit transform={transformEdit}>
-    <TabbedForm>
+    <TabbedForm toolbar={<FormToolbar />}>
       <FormTab label="Informations">
         <Box
           sx={{
@@ -218,7 +219,7 @@ const SessionForm = () => (
 
 export const SessionCreate = () => (
   <Create>
-    <SimpleForm>
+    <SimpleForm toolbar={<FormToolbar />}>
       <SessionForm />
     </SimpleForm>
   </Create>

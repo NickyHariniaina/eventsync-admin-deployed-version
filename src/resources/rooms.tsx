@@ -8,6 +8,7 @@ import {
   useRedirect,
 } from "react-admin"
 import { Card, Typography, Box, Skeleton } from "@mui/material"
+import { FormToolbar } from "../FormToolbar"
 import MeetingRoomIcon from "@mui/icons-material/MeetingRoom"
 
 function RoomCards() {
@@ -97,7 +98,7 @@ const RoomForm = () => (
 
 export const RoomEdit = () => (
   <Edit>
-    <SimpleForm>
+    <SimpleForm toolbar={<FormToolbar />}>
       <RoomForm />
     </SimpleForm>
   </Edit>
@@ -105,7 +106,7 @@ export const RoomEdit = () => (
 
 export const RoomCreate = () => (
   <Create>
-    <SimpleForm>
+    <SimpleForm toolbar={<FormToolbar />}>
       <RoomForm />
     </SimpleForm>
   </Create>
