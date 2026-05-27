@@ -55,7 +55,7 @@ export default function LoginPage() {
         <Typography
           variant="body2"
           textAlign="center"
-          sx={{ color: "#a47963", mb: 3 }}
+          sx={{ color: "#7a5c4d", mb: 3 }}
         >
           Administration
         </Typography>
