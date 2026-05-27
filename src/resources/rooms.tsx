@@ -83,10 +83,22 @@ export const RoomList = () => (
   </List>
 )
 
+const RoomForm = () => (
+  <>
+    <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
+      <MeetingRoomIcon sx={{ color: "primary.main", opacity: 0.6 }} />
+      <Typography variant="subtitle2" fontWeight={600} sx={{ color: "text.secondary", textTransform: "uppercase", letterSpacing: 0.5, fontSize: "0.75rem" }}>
+        Informations
+      </Typography>
+    </Box>
+    <TextInput source="name" label="Nom" required fullWidth />
+  </>
+)
+
 export const RoomEdit = () => (
   <Edit>
     <SimpleForm>
-      <TextInput source="name" label="Nom" required />
+      <RoomForm />
     </SimpleForm>
   </Edit>
 )
@@ -94,7 +106,7 @@ export const RoomEdit = () => (
 export const RoomCreate = () => (
   <Create>
     <SimpleForm>
-      <TextInput source="name" label="Nom" required />
+      <RoomForm />
     </SimpleForm>
   </Create>
 )
