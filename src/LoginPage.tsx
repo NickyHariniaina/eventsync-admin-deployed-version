@@ -39,9 +39,9 @@ export default function LoginPage() {
         sx={{
           width: 400,
           p: 4,
-          borderRadius: "12px",
+          borderRadius: "16px",
           border: "1px solid #d9c9c2",
-          boxShadow: "none",
+          boxShadow: "0 8px 32px rgba(0,0,0,0.04)",
         }}
       >
         <Typography

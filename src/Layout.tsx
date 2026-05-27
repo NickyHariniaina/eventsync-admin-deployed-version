@@ -4,8 +4,9 @@ import {
   Typography,
   IconButton,
 } from "@mui/material"
-import { Layout, Menu, UserMenu, Logout, type LayoutProps } from "react-admin"
+import { Layout, UserMenu, Logout, type LayoutProps } from "react-admin"
 import { useTheme } from "./ThemeContext"
+import { MyMenu } from "./Menu"
 
 function ThemeToggle() {
   const { isDark, toggle } = useTheme()
@@ -17,11 +18,25 @@ function ThemeToggle() {
       aria-label="Basculer le mode sombre"
     >
       {isDark ? (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
         </svg>
       ) : (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
           <circle cx="12" cy="12" r="5" />
           <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
         </svg>
@@ -34,7 +49,12 @@ function MyAppBar() {
   return (
     <MuiAppBar position="sticky">
       <Toolbar>
-        <Typography variant="h6" fontWeight={700} sx={{ flexGrow: 1 }}>
+        <Typography
+          variant="h6"
+          fontWeight={700}
+          letterSpacing={-0.5}
+          sx={{ flexGrow: 1 }}
+        >
           EventSync Admin
         </Typography>
         <ThemeToggle />
@@ -47,5 +67,5 @@ function MyAppBar() {
 }
 
 export function MyLayout(props: LayoutProps) {
-  return <Layout {...props} appBar={MyAppBar} menu={Menu} />
+  return <Layout {...props} appBar={MyAppBar} menu={MyMenu} />
 }
