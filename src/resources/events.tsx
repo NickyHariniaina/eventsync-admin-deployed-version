@@ -8,7 +8,7 @@ import {
   useListContext,
   useRedirect,
 } from "react-admin"
-import { Card, Typography, Box, Skeleton } from "@mui/material"
+import { Card, Typography, Box, Divider, Skeleton } from "@mui/material"
 
 function toFrDate(date: Date) {
   return date.toLocaleDateString("fr-FR", {
@@ -143,14 +143,45 @@ export const EventList = () => (
   </List>
 )
 
+function SectionHeader({ label }: { label: string }) {
+  return (
+    <Box sx={{ mb: 1, mt: 1 }}>
+      <Typography
+        variant="subtitle2"
+        fontWeight={600}
+        sx={{ color: "text.secondary", textTransform: "uppercase", letterSpacing: 0.5, fontSize: "0.75rem" }}
+      >
+        {label}
+      </Typography>
+      <Divider sx={{ mt: 0.5 }} />
+    </Box>
+  )
+}
+
+const EventForm = () => (
+  <>
+    <SectionHeader label="Informations" />
+    <TextInput source="title" label="Titre" required fullWidth />
+    <TextInput source="description" label="Description" multiline fullWidth />
+    <TextInput source="location" label="Lieu" fullWidth />
+    <SectionHeader label="Dates" />
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
+        gap: 1,
+      }}
+    >
+      <DateTimeInput source="startDate" label="Date de debut" required />
+      <DateTimeInput source="endDate" label="Date de fin" required />
+    </Box>
+  </>
+)
+
 export const EventEdit = () => (
   <Edit>
     <SimpleForm>
-      <TextInput source="title" label="Titre" required />
-      <TextInput source="description" label="Description" multiline />
-      <TextInput source="location" label="Lieu" />
-      <DateTimeInput source="startDate" label="Date de debut" required />
-      <DateTimeInput source="endDate" label="Date de fin" required />
+      <EventForm />
     </SimpleForm>
   </Edit>
 )
@@ -158,11 +189,7 @@ export const EventEdit = () => (
 export const EventCreate = () => (
   <Create>
     <SimpleForm>
-      <TextInput source="title" label="Titre" required />
-      <TextInput source="description" label="Description" multiline />
-      <TextInput source="location" label="Lieu" />
-      <DateTimeInput source="startDate" label="Date de debut" required />
-      <DateTimeInput source="endDate" label="Date de fin" required />
+      <EventForm />
     </SimpleForm>
   </Create>
 )
