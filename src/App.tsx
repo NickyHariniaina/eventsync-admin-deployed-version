@@ -20,7 +20,8 @@ const httpClient = (url: string, options: fetchUtils.Options = {}) => {
   return fetchUtils.fetchJson(url, { ...options, credentials: "include" })
 }
 
-const dataProvider = simpleRestProvider("http://localhost:3000/api", httpClient)
+// CHANGE THIS LATER
+const dataProvider = simpleRestProvider("https://eventsync-program.vercel.app/api", httpClient)
 
 function AdminApp() {
   const { isDark } = useTheme()
