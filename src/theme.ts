@@ -69,7 +69,7 @@ export const lightTheme = createTheme({
   palette: {
     primary: { main: "#a33b20", contrastText: "#ffffff" },
     secondary: { main: "#a47963", contrastText: "#ffffff" },
-    text: { primary: "#292f36", secondary: "#a47963" },
+    text: { primary: "#292f36", secondary: "#7a5c4d" },
     background: { default: "#faf8f7", paper: "#ffffff" },
     divider: "#d9c9c2",
     action: {
@@ -112,7 +112,7 @@ export const lightTheme = createTheme({
         root: {
           "& .MuiTableCell-head": {
             fontWeight: 600,
-            color: "#a47963",
+            color: "#7a5c4d",
           },
         },
       },
