@@ -112,7 +112,11 @@ export const lightTheme = createTheme({
         root: {
           "& .MuiTableCell-head": {
             fontWeight: 600,
+<<<<<<< feat/style-improvement
+            color: "#7a5c4d",
+=======
             color: "#a47963",
+>>>>>>> develop-admin
           },
         },
       },
@@ -145,7 +149,7 @@ export const darkTheme = createTheme({
     mode: "dark",
     primary: { main: "#a33b20", contrastText: "#ffffff" },
     secondary: { main: "#a47963", contrastText: "#ffffff" },
-    text: { primary: "#ffffff", secondary: "#a47963" },
+    text: { primary: "#ffffff", secondary: "#c9a894" },
     background: { default: "#292f36", paper: "#1e2329" },
     divider: "#4a3f3a",
     action: {
@@ -188,7 +192,11 @@ export const darkTheme = createTheme({
         root: {
           "& .MuiTableCell-head": {
             fontWeight: 600,
+<<<<<<< feat/style-improvement
+            color: "#c9a894",
+=======
             color: "#a47963",
+>>>>>>> develop-admin
           },
         },
       },
