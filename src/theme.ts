@@ -112,11 +112,7 @@ export const lightTheme = createTheme({
         root: {
           "& .MuiTableCell-head": {
             fontWeight: 600,
-<<<<<<< feat/style-improvement
-            color: "#7a5c4d",
-=======
             color: "#a47963",
->>>>>>> develop-admin
           },
         },
       },
@@ -192,11 +188,7 @@ export const darkTheme = createTheme({
         root: {
           "& .MuiTableCell-head": {
             fontWeight: 600,
-<<<<<<< feat/style-improvement
             color: "#c9a894",
-=======
-            color: "#a47963",
->>>>>>> develop-admin
           },
         },
       },
